@@ -11,8 +11,8 @@
     "react-dom": "^16.13.1",
 
     "react-scripts": "3.4.1",
-    "yup": "^0.29.0"
-    "react-router-dom": "^5.2.0",
+    "yup": "^0.29.0",
+    "react-router-dom": "^5.2.0"
 
   },
   "scripts": {
