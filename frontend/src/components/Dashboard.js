@@ -14,8 +14,8 @@ const Dashboard = () => {
         })
     }, [])
     return (
-        <div>
-            <h1>Dashboard</h1>
+        <div className="hacksBody">
+            <h1 id="popular">Popular Life Hacks!</h1>
             <PostList posts={posts} />
         </div>
     )
