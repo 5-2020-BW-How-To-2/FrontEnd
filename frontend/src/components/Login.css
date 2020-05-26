@@ -1,0 +1,10 @@
+.login-wrapper {
+    background-color: aqua;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+}
