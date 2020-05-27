@@ -1,4 +1,5 @@
 .App {
+
   text-align: center;
   
   /* box-shadow: -1px -11px 10px white; */
@@ -15,12 +16,13 @@ body{
   display: flex;
   background-color: orange;
 }
-.navbuttons{
-margin-left: 50%;
-margin-top: 1.5%;
-flex: auto;
-justify-content: flex-end;
+.navbuttons {
+    margin-left: 50%;
+    margin-top: 1.5%;
+    flex: auto;
+    justify-content: flex-end;
 }
+
 .navbuttons button{
   border-radius: 30px;
   padding: 2.1%;
@@ -28,10 +30,12 @@ justify-content: flex-end;
   color: rgb(212, 212, 212);
   font-weight: bold;
   margin-left: 2%;
+
 }
-.navbuttons button:hover{
-  cursor: pointer;
+.navbuttons button:hover {
+    cursor: pointer;
 }
+
 #logo{
   background-color: rgb(27, 27, 27);
   color: rgb(214, 214, 214);
@@ -50,13 +54,15 @@ justify-content: flex-end;
   padding: 1%;
   display: flex;
   box-shadow: 10px -2px 25px black;
+
 }
-.hacksBody{
-  background-color: rgb(27, 27, 27);
+.hacksBody {
+    background-color: rgb(27, 27, 27);
 }
-#popular{
-  color: rgb(226, 226, 226);
+#popular {
+    color: rgb(226, 226, 226);
 }
+
 .postcard h1{
   background-color: orange;
   width: 90%;
@@ -103,11 +109,16 @@ font-weight: bold;
   background-color: white;
   color:black;
   font-weight: bold;
+
 }
-#tutorial{
-  display: flex;
-  justify-content: flex-end;
+#tutorial {
+    display: flex;
+    justify-content: flex-end;
 }
+.halfCard {
+    width: 50%;
+}
+
 .newcardflex{
   display: flex;
 }

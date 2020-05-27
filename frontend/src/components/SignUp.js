@@ -23,7 +23,10 @@ let SignUp = () => {
     // Schema
     const loginFormSchema = yup.object().shape({
         username: yup.string().required("Username is a required field."),
-        password: yup.string().min(6).required("Must have a Password."),
+        password: yup
+            .string()
+            .min(6)
+            .required("Password must have 6 characters"),
     });
     // Validation
 
@@ -83,34 +86,36 @@ let SignUp = () => {
     };
     return (
         <div className='login-wrapper'>
-            <h1>Sign Up Below!</h1>
+            <h1>Sign Up</h1>
             <form onSubmit={loginFormSubmit}>
                 <label htmlFor='username'>
-                    {loginErrors.username.length > 0 ? (
-                        <p className='error'>{loginErrors.username}</p>
-                    ) : null}
-                    Username
                     <input
+                        className='username-input'
                         type='text'
                         name='username'
                         value={loginFormState.username}
                         onChange={inputChange}
+                        placeholder='Username'
                         id='username'
                     />
+                    {loginErrors.username.length > 0 ? (
+                        <p className='error'>{loginErrors.username}</p>
+                    ) : null}
                 </label>
                 <br />
                 <label htmlFor='password'>
-                    {loginErrors.password.length > 0 ? (
-                        <p className='error'>{loginErrors.password}</p>
-                    ) : null}
-                    Password
                     <input
+                        className='password-input'
                         type='password'
                         name='password'
                         value={loginFormState.password}
                         onChange={inputChange}
+                        placeholder='Password'
                         id='password'
                     />
+                    {loginErrors.password.length > 0 ? (
+                        <p className='error'>{loginErrors.password}</p>
+                    ) : null}
                 </label>
                 <pre>{JSON.stringify(loginPost, null, 2)}</pre>
                 <button disabled={buttonDisabled}>Sign Up!</button>
