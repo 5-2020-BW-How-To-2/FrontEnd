@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axiosWithAuth from "../Utils/AxiosWithAuth";
+import axiosWithAuth from '../utils/AxiosWithAuth'
 import PostList from "./PostList";
 
 const Dashboard = () => {
