@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axios from "axios";
 import "../components/Login.css";
+import { useHistory } from 'react-router-dom';
+import AxiosWithAuth from '../utils/AxiosWithAuth'
 
 let Login = () => {
     // State
+    let history = useHistory();
 
     const [signUpFormState, setSignUpFormState] = useState({
         username: "",
@@ -71,9 +74,11 @@ let Login = () => {
 
     const signUpFormSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post("https://reqres.in/api/users", signUpFormState)
+        AxiosWithAuth()
+            .post("api/auth/login", signUpFormState)
             .then((res) => {
+                localStorage.setItem("token", res.data.token);
+                history.push('/dashboard')
                 setSignUpPost(res.data); // get just the form data from the REST api
                 console.log("success", signUpPost);
                 // reset form if successful
@@ -115,7 +120,6 @@ let Login = () => {
                         <p className='error'>{signUpErrors.password}</p>
                     ) : null}
                 </label>
-                <pre>{JSON.stringify(signUpPost, null, 2)}</pre>
                 <button disabled={buttonDisabled}>Login</button>
             </form>
         </div>

@@ -8,6 +8,7 @@
   margin: 0 auto;
   height: 100%;
   box-shadow: 1px 10px 100px 26px black;
+  padding-bottom: 5%;
 }
 body{
   background-color: rgb(43, 43, 43);
@@ -31,16 +32,18 @@ body{
   color: rgb(212, 212, 212);
   font-weight: bold;
   margin-left: 2%;
-
+  border: 2px solid rgb(27, 27, 27); 
 }
 .navbuttons button:hover {
     cursor: pointer;
+    border: 2px solid white;
+    text-shadow:black;
 }
 
 #logo{
   background-color: rgb(27, 27, 27);
   color: rgb(214, 214, 214);
-  border: 5px solid black;
+  border: 5px solid rgb(27, 27, 27);
   border-radius: 25px;
   width: 100%;
   padding: 4%;
@@ -79,8 +82,8 @@ width: 50%;
 color: white;
 background-color: orange;
 margin-top: 12%;
-border-radius: 15px 50px 30px;
-padding-bottom: 10%;
+border-radius: 0px 50px 0px;
+padding-bottom: 5%;
 margin-right: 2%;
 box-shadow:15px 15px 15px black;
 }
@@ -118,7 +121,7 @@ font-weight: bold;
     justify-content: flex-end;
 }
 .halfCard {
-    width: 50%;
+    width: 70%; 
 }
 
 .newcardflex{
