@@ -5,67 +5,54 @@ import AxiosWithAuth from "../utils/AxiosWithAuth";
 import { useHistory } from "react-router-dom";
 
 let SignUp = () => {
-  // State
-  let history = useHistory();
+    // State
+    let history = useHistory();
 
-  const [loginFormState, setLoginFormState] = useState({
-    username: "",
-    password: "",
-  });
-  // State for errors
-  const [loginErrors, setLoginErrors] = useState({
-    username: "",
-    password: "",
-  });
-  // Button State
-  const [buttonDisabled, setButtonDisabled] = useState(true);
-  // login Post State
-  const [loginPost, setLoginPost] = useState([]);
-
-  // Schema
-  const loginFormSchema = yup.object().shape({
-    username: yup.string().required("Username is a required field."),
-    password: yup.string().min(6).required("Password must have 6 characters"),
-  });
-  // Validation
-
-  useEffect(() => {
-    loginFormSchema.isValid(loginFormState).then((valid) => {
-      setButtonDisabled(!valid);
+    const [loginFormState, setLoginFormState] = useState({
+        username: "",
+        password: "",
     });
-  }, [loginFormState]);
+    // State for errors
+    const [loginErrors, setLoginErrors] = useState({
+        username: "",
+        password: "",
+        login: "Invalid Username or Password",
+    });
+    // Button State
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    // login Post State
+    const [loginPost, setLoginPost] = useState([]);
 
-  //   Event Handlers
-  const inputChange = (e) => {
-    e.persist();
-    const newLoginFormData = {
-      ...loginFormState,
-      [e.target.name]:
-        e.target.type === "checkbox" ? e.target.checked : e.target.value,
+    // Schema
+    const loginFormSchema = yup.object().shape({
+        username: yup.string().required("Username is a required field."),
+        password: yup
+            .string()
+            .min(6)
+            .required("Password must have 6 characters"),
+    });
+    // Validation
+
+    useEffect(() => {
+        loginFormSchema.isValid(loginFormState).then((valid) => {
+            setButtonDisabled(!valid);
+        });
+    }, [loginFormState]);
+
+    //   Event Handlers
+    const inputChange = (e) => {
+        e.persist();
+        const newLoginFormData = {
+            ...loginFormState,
+            [e.target.name]:
+                e.target.type === "checkbox"
+                    ? e.target.checked
+                    : e.target.value,
+        };
+
+        validateChange(e);
+        setLoginFormState(newLoginFormData);
     };
-
-    validateChange(e);
-    setLoginFormState(newLoginFormData);
-  };
-
-  const validateChange = (e) => {
-    // Reach will allow us to "reach" into the schema and test only one part.
-    yup
-      .reach(loginFormSchema, e.target.name)
-      .validate(e.target.value)
-      .then((valid) => {
-        setLoginErrors({
-          ...loginErrors,
-          [e.target.name]: "",
-        });
-      })
-      .catch((err) => {
-        setLoginErrors({
-          ...loginErrors,
-          [e.target.name]: err.errors[0],
-        });
-      });
-  };
 
   const loginFormSubmit = (e) => {
     e.preventDefault();
@@ -122,6 +109,7 @@ let SignUp = () => {
       </form>
     </div>
   );
+
 };
 
 export default SignUp;

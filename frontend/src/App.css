@@ -1,22 +1,23 @@
 .App {
+    /* text-align: center; */
 
-  text-align: center;
-  
-  /* box-shadow: -1px -11px 10px white; */
-  /* box-shadow: -1px -11px 110px black; */
-  width: 87%;
+    /* box-shadow: -1px -11px 10px white; */
+    /* box-shadow: -1px -11px 110px black; */
+    /* width: 87%;
   margin: 0 auto;
   height: 100%;
   box-shadow: 1px 10px 100px 26px black;
-  padding-bottom: 5%;
+  padding-bottom: 5%; */
 }
-body{
-  background-color: rgb(43, 43, 43);
-  /* background-image: linear-gradient(90deg, black, white 90%,black); */
+body {
+    background-color: rgb(43, 43, 43);
+    /* background-image: linear-gradient(90deg, black, white 90%,black); */
 }
-.nav{
-  display: flex;
-  background-color: orange;
+.nav {
+    display: flex;
+    background-color: orange;
+    text-align: center;
+    box-shadow: 1px 10px 100px 26px black;
 }
 .navbuttons {
     margin-left: 50%;
@@ -25,40 +26,39 @@ body{
     justify-content: flex-end;
 }
 
-.navbuttons button{
-  border-radius: 30px;
-  padding: 2.1%;
-  background-color: rgb(27, 27, 27);
-  color: rgb(212, 212, 212);
-  font-weight: bold;
-  margin-left: 2%;
-  border: 2px solid rgb(27, 27, 27); 
+.navbuttons button {
+    border-radius: 30px;
+    padding: 2.1%;
+    background-color: rgb(27, 27, 27);
+    color: rgb(212, 212, 212);
+    font-weight: bold;
+    margin-left: 2%;
+    border: 2px solid rgb(27, 27, 27);
 }
 .navbuttons button:hover {
     cursor: pointer;
     border: 2px solid white;
-    text-shadow:black;
+    text-shadow: black;
 }
 
-#logo{
-  background-color: rgb(27, 27, 27);
-  color: rgb(214, 214, 214);
-  border: 5px solid rgb(27, 27, 27);
-  border-radius: 25px;
-  width: 100%;
-  padding: 4%;
-  margin-left: 15%;
+#logo {
+    background-color: rgb(27, 27, 27);
+    color: rgb(214, 214, 214);
+    border: 5px solid rgb(27, 27, 27);
+    border-radius: 25px;
+    width: 100%;
+    padding: 4%;
+    margin-left: 15%;
 }
-.postcard{
-  background-image: linear-gradient(white, rgb(27, 27, 27));
-  padding: 1%;
-  width: 30%;
-  margin: 0 auto;
-  margin-top: 10%;
-  padding: 1%;
-  display: flex;
-  box-shadow: 10px -2px 25px black;
-
+.postcard {
+    background-image: linear-gradient(white, rgb(27, 27, 27));
+    padding: 1%;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 1%;
+    display: flex;
+    box-shadow: 10px -2px 25px black;
 }
 .hacksBody {
     background-color: rgb(27, 27, 27);
@@ -125,22 +125,22 @@ font-weight: bold;
   color:black;
   font-weight: bold;
 
+
 }
 #tutorial {
     display: flex;
     justify-content: flex-end;
 }
 .halfCard {
-    width: 70%; 
+    width: 70%;
 }
 
-.newcardflex{
-  display: flex;
+.newcardflex {
+    display: flex;
 }
+
 
 .newcardflex:hover{
   cursor: pointer;
 }
-#incase{
-  margin-top: 5%;
-}
+
