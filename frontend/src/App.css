@@ -89,25 +89,35 @@ box-shadow:15px 15px 15px black;
 }
 .hackBody h2{
   background-color: rgb(27, 27, 27);
+  color: rgb(255, 236, 202);
   width: fit-content;
-  margin: 0 auto;
+  margin-top: 4%;
   padding-left: 1%;
   padding-right: 1%;
+  text-decoration: underline;
+  text-decoration-color: orangered;
+ 
 }
 .hackBody p{
 background-color: rgb(27, 27, 27);  
-margin-top: 5%;
+color: rgb(201, 201, 201);
+margin-top: 4%;
 width: fit-content;
-padding:2%
+padding:2%;
+
 }
 .hackBody button{
 background-color: rgb(27, 27, 27);
-color: white;
+color: rgb(201, 201, 201);
 border-radius: 15px 50px 5px;
 padding: 2%;
 text-decoration: none;
-margin-top: 5%;
+margin-top: 1%;
+
 font-weight: bold;
+}
+.hackBody span{
+  color: rgb(255, 136, 0);
 }
 .hackBody button:hover{
   cursor: pointer;
@@ -126,6 +136,10 @@ font-weight: bold;
 
 .newcardflex{
   display: flex;
+}
+
+.newcardflex:hover{
+  cursor: pointer;
 }
 #incase{
   margin-top: 5%;

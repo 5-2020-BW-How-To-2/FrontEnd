@@ -72,8 +72,8 @@ let SignUp = () => {
     AxiosWithAuth()
       .post("api/auth/register", loginFormState)
       .then((res) => {
-        setLoginPost(res.data); // get just the form data from the REST api
-        console.log("success", loginPost);
+        setLoginPost(res.data); 
+        console.log("loginPost", loginFormState);
         history.push("/login");
         // reset form if successful
         setLoginFormState({
