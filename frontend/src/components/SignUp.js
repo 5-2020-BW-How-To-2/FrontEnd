@@ -54,62 +54,81 @@ let SignUp = () => {
         setLoginFormState(newLoginFormData);
     };
 
-  const loginFormSubmit = (e) => {
-    e.preventDefault();
-    AxiosWithAuth()
-      .post("api/auth/register", loginFormState)
-      .then((res) => {
-        setLoginPost(res.data); 
-        console.log("loginPost", loginFormState);
-        history.push("/login");
-        // reset form if successful
-        setLoginFormState({
-          username: "",
-          password: "",
-        });
-      })
-      .catch((err) => console.log(err.response));
-  };
-  return (
-    <div className="login-wrapper">
-      <h1>Sign Up</h1>
-      <form onSubmit={loginFormSubmit}>
-        <label htmlFor="username">
-          <input
-            className="username-input"
-            type="text"
-            name="username"
-            value={loginFormState.username}
-            onChange={inputChange}
-            placeholder="Username"
-            id="username"
-          />
-          {loginErrors.username.length > 0 ? (
-            <p className="error">{loginErrors.username}</p>
-          ) : null}
-        </label>
-        <br />
-        <label htmlFor="password">
-          <input
-            className="password-input"
-            type="password"
-            name="password"
-            value={loginFormState.password}
-            onChange={inputChange}
-            placeholder="Password"
-            id="password"
-          />
-          {loginErrors.password.length > 0 ? (
-            <p className="error">{loginErrors.password}</p>
-          ) : null}
-        </label>
-        <button disabled={buttonDisabled}>Sign Up!</button>
-        <br />
-        Have an account? <a href="/login">Login</a>
-      </form>
-    </div>
-  );
+    const validateChange = (e) => {
+        // Reach will allow us to "reach" into the schema and test only one part.
+        yup.reach(loginFormSchema, e.target.name)
+            .validate(e.target.value)
+            .then((valid) => {
+                setLoginErrors({
+                    ...loginErrors,
+                    [e.target.name]: "",
+                });
+            })
+            .catch((err) => {
+                setLoginErrors({
+                    ...loginErrors,
+                    [e.target.name]: err.errors[0],
+                });
+            });
+    };
 
+    const loginFormSubmit = (e) => {
+        e.preventDefault();
+        AxiosWithAuth()
+            .post("api/auth/register", loginFormState)
+            .then((res) => {
+                setLoginPost(res.data);
+                console.log("loginPost", loginFormState);
+                history.push("/login");
+                // reset form if successful
+                setLoginFormState({
+                    username: "",
+                    password: "",
+                });
+            })
+            .catch((err) => console.log(err.response));
+    };
+    return (
+        <div className='login-wrapper'>
+            <h1>Sign Up</h1>
+            <form onSubmit={loginFormSubmit}>
+                <label htmlFor='username'>
+                    <input
+                        className='username-input'
+                        type='text'
+                        name='username'
+                        value={loginFormState.username}
+                        onChange={inputChange}
+                        placeholder='Username'
+                        id='username'
+                    />
+                    {loginErrors.username.length > 0 ? (
+                        <p className='error'>{loginErrors.username}</p>
+                    ) : null}
+                </label>
+                <br />
+                <label htmlFor='password'>
+                    <input
+                        className='password-input'
+                        type='password'
+                        name='password'
+                        value={loginFormState.password}
+                        onChange={inputChange}
+                        placeholder='Password'
+                        id='password'
+                    />
+                    {loginErrors.password.length > 0 ? (
+                        <p className='error'>{loginErrors.password}</p>
+                    ) : null}
+                </label>
+                <button className='login-btn2' disabled={buttonDisabled}>
+                    Sign Up!
+                </button>
+                <br />
+                Have an account? <a href='/login'>Login</a>
+            </form>
+        </div>
+    );
 };
 
 export default SignUp;
