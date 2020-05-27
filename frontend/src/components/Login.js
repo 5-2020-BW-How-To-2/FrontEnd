@@ -77,10 +77,14 @@ let Login = () => {
         AxiosWithAuth()
             .post("api/auth/login", signUpFormState)
             .then((res) => {
-                localStorage.setItem("token", res.data.token);
-                history.push("/dashboard");
+
+                history.push('/dashboard')
+
                 setSignUpPost(res.data); // get just the form data from the REST api
+                console.log(res.data)
                 console.log("success", signUpPost);
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user_id", res.data.id);
                 // reset form if successful
                 setSignUpFormState({
                     username: "",
