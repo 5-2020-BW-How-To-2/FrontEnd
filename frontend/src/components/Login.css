@@ -4,10 +4,38 @@
     margin-top: 5%;
     width: fit-content;
     margin: 0 auto;
-    padding: 2%;
+    padding: 7%;
+    background-color: orange;
+    margin-top: 10%;
 }
 
 .error {
     color: red;
     font-size: 10px;
+}
+
+.username-input {
+    margin-bottom: 10%;
+    width: 100%;
+    padding: 6%;
+    box-sizing: border-box;
+    color: black;
+}
+
+.username-input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1;
+}
+
+.password-input {
+    width: 100%;
+    padding: 6%;
+    box-sizing: border-box;
+}
+
+.password-input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1;
 }
