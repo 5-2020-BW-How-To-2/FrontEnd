@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import axios from "axios";
 import "../components/Login.css";
 import { useHistory } from "react-router-dom";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
@@ -56,17 +55,17 @@ let Login = () => {
 
     const validateChange = (e) => {
         // Reach will allow us to "reach" into the schema and test only one part.
-        yup.reach(signUpFormSchema, e.target.name)
+        yup.reach(loginFormSchema, e.target.name)
             .validate(e.target.value)
             .then((valid) => {
-                setSignUpErrors({
-                    ...signUpErrors,
+                loginErrors({
+                    ...loginErrors,
                     [e.target.name]: "",
                 });
             })
             .catch((err) => {
                 setSignUpErrors({
-                    ...signUpErrors,
+                    ...loginErrors,
                     [e.target.name]: err.errors[0],
                 });
             });

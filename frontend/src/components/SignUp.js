@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../components/Login.css";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
 import { useHistory } from "react-router-dom";
+import AxiosWithAuth from "../utils/AxiosWithAuth";
+
 
 let SignUp = () => {
     // State
