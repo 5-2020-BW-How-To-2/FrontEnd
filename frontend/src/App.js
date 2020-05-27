@@ -5,7 +5,7 @@ import SignUp from "./components/SignUp";
 import StickyNav from "./components/StickyNav";
 import { Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import PrivateRoute from "./Utils/PrivateRoute";
+import PrivateRoute from './utils/PrivateRoute'
 
 function App() {
     return (

@@ -7,6 +7,7 @@ const PostCard = props => {
             <div className="halfCard">
             <h1>{props.post.title}...</h1>
             <h3>{props.post.description}!</h3>
+            <strong><p>...Hack your life!</p></strong>
             </div>
             </div>
             <div className="hackBody">

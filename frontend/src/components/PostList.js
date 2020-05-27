@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosWithAuth from "../Utils/AxiosWithAuth";
+import axiosWithAuth from '../utils/AxiosWithAuth'
 import { useHistory } from "react-router-dom";
 import PostCard from "./PostCard";
 
