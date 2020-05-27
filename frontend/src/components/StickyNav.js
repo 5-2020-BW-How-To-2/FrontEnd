@@ -5,14 +5,11 @@ const StickyNav = () => {
     return (
         <div className='nav'>
             <div>
-
-            <h2 id="logo">Life-Hacks</h2>
-
+                <h2 id='logo'>Life-Hacks</h2>
             </div>
             <div className='navbuttons'>
-                <Link>
-                    <button to='/home'>Home</button>
-                </Link>
+                <button to='/dashboard'>Home</button>
+
                 <Link to='/signup'>
                     <button>Sign Up</button>
                 </Link>
