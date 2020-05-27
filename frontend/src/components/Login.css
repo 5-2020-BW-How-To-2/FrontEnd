@@ -1,5 +1,4 @@
 .login-wrapper {
-    background-color: aqua;
     width: 100%;
     margin-top: 5%;
     width: fit-content;
@@ -7,6 +6,7 @@
     padding: 7%;
     background-color: orange;
     margin-top: 10%;
+    text-align: center;
 }
 
 .error {
@@ -38,4 +38,17 @@
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1;
+}
+
+.login-btn {
+    margin-top: 15%;
+    padding: 5%;
+    width: 75%;
+}
+
+.login-btn2 {
+    margin-top: 15%;
+    padding: 5%;
+    width: 75%;
+    margin-bottom: 5%;
 }

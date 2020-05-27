@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axios from "axios";
 import "../components/Login.css";
-import { useHistory } from 'react-router-dom';
-import AxiosWithAuth from '../utils/AxiosWithAuth'
+import { useHistory } from "react-router-dom";
+import AxiosWithAuth from "../utils/AxiosWithAuth";
 
 let Login = () => {
     // State
@@ -78,7 +78,7 @@ let Login = () => {
             .post("api/auth/login", signUpFormState)
             .then((res) => {
                 localStorage.setItem("token", res.data.token);
-                history.push('/dashboard')
+                history.push("/dashboard");
                 setSignUpPost(res.data); // get just the form data from the REST api
                 console.log("success", signUpPost);
                 // reset form if successful
@@ -120,7 +120,9 @@ let Login = () => {
                         <p className='error'>{signUpErrors.password}</p>
                     ) : null}
                 </label>
-                <button disabled={buttonDisabled}>Login</button>
+                <button className='login-btn' disabled={buttonDisabled}>
+                    Login
+                </button>
             </form>
         </div>
     );

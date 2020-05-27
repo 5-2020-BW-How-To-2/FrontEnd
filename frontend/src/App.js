@@ -8,16 +8,16 @@ import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
-  return (
-    <div className="App">
-      <StickyNav />
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-      </Switch>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <StickyNav />
+            <Switch>
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/signup' component={SignUp} />
+                <PrivateRoute path='/dashboard' component={Dashboard} />
+            </Switch>
+        </div>
+    );
 }
 
 export default App;
