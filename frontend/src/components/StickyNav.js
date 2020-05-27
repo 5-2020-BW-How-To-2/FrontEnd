@@ -5,7 +5,9 @@ const StickyNav = () => {
     return (
         <div className='nav'>
             <div>
-                <h2 id='logo'>LifeHacks</h2>
+
+            <h2 id="logo">Life-Hacks</h2>
+
             </div>
             <div className='navbuttons'>
                 <Link>
