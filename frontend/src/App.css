@@ -2,12 +2,10 @@
     /* text-align: center; */
 
     /* box-shadow: -1px -11px 10px white; */
-    /* box-shadow: -1px -11px 110px black; */
-    /* width: 87%;
-  margin: 0 auto;
-  height: 100%;
-  box-shadow: 1px 10px 100px 26px black;
-  padding-bottom: 5%; */
+    box-shadow: -1px -11px 110px black;
+    width: 87%;
+    margin: 0 auto;
+    padding-bottom: 5%; 
 }
 body {
     background-color: rgb(43, 43, 43);
@@ -113,7 +111,7 @@ border-radius: 15px 50px 5px;
 padding: 2%;
 text-decoration: none;
 margin-top: 1%;
-
+margin-left: 10%;
 font-weight: bold;
 }
 .hackBody span{
@@ -124,15 +122,9 @@ font-weight: bold;
   background-color: white;
   color:black;
   font-weight: bold;
-
-
-}
-#tutorial {
-    display: flex;
-    justify-content: flex-end;
 }
 .halfCard {
-    width: 70%;
+    width: 69%;
 }
 
 .newcardflex {

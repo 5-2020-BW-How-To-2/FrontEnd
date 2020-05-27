@@ -55,18 +55,18 @@ let Login = () => {
 
     const validateChange = (e) => {
         // Reach will allow us to "reach" into the schema and test only one part.
-        yup.reach(loginFormSchema, e.target.name)
+        yup.reach(signUpFormSchema, e.target.name)
             .validate(e.target.value)
             .then((valid) => {
-                loginErrors({
-                    ...loginErrors,
+                signUpErrors({
+                    ...signUpErrors,
                     [e.target.name]: "",
                 });
             })
             .catch((err) => {
                 setSignUpErrors({
-                    ...loginErrors,
-                    [e.target.name]: err.errors[0],
+                    ...signUpErrors,
+                    [e.target.name]: '',
                 });
             });
     };
