@@ -79,7 +79,7 @@ const AddHackForm = props => {
                 value={newHack.video}
                 />
                 <br />
-                <button >Submit Your Hack</button>
+                <button onClick={refresh}>Submit Your Hack</button>
             </form>
             
         </div>

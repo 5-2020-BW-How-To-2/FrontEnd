@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import axios from "axios";
 import "../components/Login.css";
 import { useHistory } from "react-router-dom";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
@@ -59,7 +58,7 @@ let Login = () => {
         yup.reach(signUpFormSchema, e.target.name)
             .validate(e.target.value)
             .then((valid) => {
-                setSignUpErrors({
+                signUpErrors({
                     ...signUpErrors,
                     [e.target.name]: "",
                 });
@@ -67,7 +66,7 @@ let Login = () => {
             .catch((err) => {
                 setSignUpErrors({
                     ...signUpErrors,
-                    [e.target.name]: err.errors[0],
+                    [e.target.name]: '',
                 });
             });
     };
@@ -81,7 +80,7 @@ let Login = () => {
 
                 setSignUpPost(res.data); // get just the form data from the REST api
                 console.log(res.data);
-                console.log("success", signUpPost);
+                console.log("success", signUpFormState);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.id);
                 // reset form if successful

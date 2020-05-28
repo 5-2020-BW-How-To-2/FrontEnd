@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../components/Login.css";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
 import { useHistory } from "react-router-dom";
+import AxiosWithAuth from "../utils/AxiosWithAuth";
+
 
 let SignUp = () => {
     // State
@@ -80,6 +81,8 @@ let SignUp = () => {
                 setLoginPost(res.data);
                 console.log("loginPost", loginFormState);
                 history.push("/login");
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user_id", res.data.id);
                 // reset form if successful
                 setLoginFormState({
                     username: "",
