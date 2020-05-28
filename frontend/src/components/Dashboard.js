@@ -10,7 +10,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get("api/posts")
+            .get("https://clhowto.herokuapp.com/api/posts")
             .then((res) => {
                 console.log(res);
                 setPosts(res.data);

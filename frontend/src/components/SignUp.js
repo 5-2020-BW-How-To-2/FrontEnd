@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../components/Login.css";
 import { useHistory } from "react-router-dom";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
+import axiosWithAuth from "../utils/AxiosWithAuth";
 
 
 let SignUp = () => {
@@ -21,9 +21,6 @@ let SignUp = () => {
     });
     // Button State
     const [buttonDisabled, setButtonDisabled] = useState(true);
-    // login Post State
-    const [loginPost, setLoginPost] = useState([]);
-
     // Schema
     const loginFormSchema = yup.object().shape({
         username: yup.string().required("Username is a required field."),
@@ -42,17 +39,8 @@ let SignUp = () => {
 
     //   Event Handlers
     const inputChange = (e) => {
-        e.persist();
-        const newLoginFormData = {
-            ...loginFormState,
-            [e.target.name]:
-                e.target.type === "checkbox"
-                    ? e.target.checked
-                    : e.target.value,
-        };
-
-        validateChange(e);
-        setLoginFormState(newLoginFormData);
+        // validateChange(e);
+        setLoginFormState({ ...loginFormState, [e.target.name]: e.target.value });
     };
 
     const validateChange = (e) => {
@@ -75,14 +63,11 @@ let SignUp = () => {
 
     const loginFormSubmit = (e) => {
         e.preventDefault();
-        AxiosWithAuth()
-            .post("api/auth/register", loginFormState)
+        axiosWithAuth()
+            .post("https://clhowto.herokuapp.com/api/auth/register", loginFormState)
             .then((res) => {
-                setLoginPost(res.data);
-                console.log("loginPost", loginFormState);
+                console.log("loginFormState-actually Signup", loginFormState);
                 history.push("/login");
-                localStorage.setItem("token", res.data.token);
-                localStorage.setItem("user_id", res.data.id);
                 // reset form if successful
                 setLoginFormState({
                     username: "",
