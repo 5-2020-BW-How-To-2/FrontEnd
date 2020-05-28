@@ -36,8 +36,12 @@ let Login = () => {
 
     //   Event Handlers
     const inputChange = (e) => {
-        setSignUpFormState({ ...signUpFormState, [e.target.name]: e.target.value });
-        // validateChange(e);
+        e.persist();
+        setSignUpFormState({
+            ...signUpFormState,
+            [e.target.name]: e.target.value,
+        });
+        validateChange(e);
     };
 
     const validateChange = (e) => {
@@ -45,7 +49,7 @@ let Login = () => {
         yup.reach(signUpFormSchema, e.target.name)
             .validate(e.target.value)
             .then((valid) => {
-                signUpErrors({
+                setSignUpErrors({
                     ...signUpErrors,
                     [e.target.name]: "",
                 });
@@ -53,9 +57,7 @@ let Login = () => {
             .catch((err) => {
                 setSignUpErrors({
                     ...signUpErrors,
-
-                    [e.target.name]: err.signUpErrors[0],
-
+                    [e.target.name]: err.errors[0],
                 });
             });
     };
@@ -63,9 +65,11 @@ let Login = () => {
     const signUpFormSubmit = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post("https://clhowto.herokuapp.com/api/auth/login", signUpFormState)
+            .post(
+                "https://clhowto.herokuapp.com/api/auth/login",
+                signUpFormState,
+            )
             .then((res) => {
-                console.log("success", signUpFormState);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.id);
                 history.push("/dashboard");
