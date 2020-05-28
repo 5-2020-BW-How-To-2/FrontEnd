@@ -28,7 +28,6 @@ let Login = () => {
             .required("Password must have 6 characters"),
     });
     // Validation
-
     useEffect(() => {
         signUpFormSchema.isValid(signUpFormState).then((valid) => {
             setButtonDisabled(!valid);
