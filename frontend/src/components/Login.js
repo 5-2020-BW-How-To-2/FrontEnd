@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../components/Login.css";
 import { useHistory } from "react-router-dom";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
+import axiosWithAuth from "../utils/AxiosWithAuth";
 
 let Login = () => {
     // State
@@ -19,9 +19,6 @@ let Login = () => {
     });
     // Button State
     const [buttonDisabled, setButtonDisabled] = useState(true);
-    // Signup Post State
-    const [signUpPost, setSignUpPost] = useState([]);
-
     // Schema
     const signUpFormSchema = yup.object().shape({
         username: yup.string().required("Username is a required field."),
@@ -40,17 +37,8 @@ let Login = () => {
 
     //   Event Handlers
     const inputChange = (e) => {
-        e.persist();
-        const newLoginFormData = {
-            ...signUpFormState,
-            [e.target.name]:
-                e.target.type === "checkbox"
-                    ? e.target.checked
-                    : e.target.value,
-        };
-
-        validateChange(e);
-        setSignUpFormState(newLoginFormData);
+        setSignUpFormState({ ...signUpFormState, [e.target.name]: e.target.value });
+        // validateChange(e);
     };
 
     const validateChange = (e) => {
@@ -66,23 +54,22 @@ let Login = () => {
             .catch((err) => {
                 setSignUpErrors({
                     ...signUpErrors,
-                    [e.target.name]: "",
+
+                    [e.target.name]: err.signUpErrors[0],
+
                 });
             });
     };
 
     const signUpFormSubmit = (e) => {
         e.preventDefault();
-        AxiosWithAuth()
-            .post("api/auth/login", signUpFormState)
+        axiosWithAuth()
+            .post("https://clhowto.herokuapp.com/api/auth/login", signUpFormState)
             .then((res) => {
-                history.push("/dashboard");
-
-                setSignUpPost(res.data); // get just the form data from the REST api
-                console.log(res.data);
                 console.log("success", signUpFormState);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.id);
+                history.push("/dashboard");
                 // reset form if successful
                 setSignUpFormState({
                     username: "",
