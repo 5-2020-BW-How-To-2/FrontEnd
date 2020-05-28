@@ -66,7 +66,7 @@ let Login = () => {
             .catch((err) => {
                 setSignUpErrors({
                     ...signUpErrors,
-                    [e.target.name]: '',
+                    [e.target.name]: "",
                 });
             });
     };
