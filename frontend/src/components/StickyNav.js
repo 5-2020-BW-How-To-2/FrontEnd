@@ -17,7 +17,7 @@ const StickyNav = () => {
                     <button>Login</button>
                 </Link>
                 <Link to='/dashboard'>
-                    <button>TEST FOR DASH</button>
+                    <button>Dashboard</button>
                 </Link>
             </div>
         </div>

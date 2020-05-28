@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const AddHackForm = (props) => {
-const { push } = useHistory();
+    let history = useHistory();
 
     const [newHack, setNewHack] = useState({
         user_id: "1",
@@ -20,9 +20,10 @@ const { push } = useHistory();
             .post("https://clhowto.herokuapp.com/api/posts", newHack)
             .then((res) => {
                 props.setPosts(res.data);
-                window.location.reload()
-                push('/dashboard')
                 console.log("this is the new hack data", res.data);
+                history.push('/dashboard')
+                window.location.reload()
+                
             });
     };
 
@@ -32,8 +33,8 @@ const { push } = useHistory();
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <h3>Whats your big idea!</h3>
+            <form onSubmit={handleSubmit} className="addHackForm" >
+                <h3 id="idea">Whats your big idea!</h3>
                 <label>Life-Hack</label>
                 <br />
                 <input
@@ -49,6 +50,7 @@ const { push } = useHistory();
                 <label>Description</label>
                 <br />
                 <input
+                    id="desc"
                     type='text'
                     name='description'
                     placeholder='description'
@@ -94,7 +96,7 @@ const { push } = useHistory();
                     value={newHack.video}
                 />
                 <br />
-                <button onClick={refresh}>Submit Your Hack</button>
+                <button onClick={refresh}>Submit Your Hack</button><alt> *for approval</alt>
             </form>
         </div>
     );

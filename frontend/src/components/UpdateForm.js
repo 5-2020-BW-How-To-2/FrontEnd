@@ -34,7 +34,7 @@ import { useHistory } from 'react-router-dom';
                 <h3>Whats your big idea!</h3>
                 <label>Life-Hack</label>
                 <br />
-                <label>ID</label>
+                {/* <label>ID</label>
                 <br />
                 <input 
                 type="number"
@@ -44,7 +44,7 @@ import { useHistory } from 'react-router-dom';
                     setNewData({ ...newData, title: e.target.value })
                 }
                 value={newData.id}
-                />
+                /> */}
                 <br />
                 <input
                     type='text'
