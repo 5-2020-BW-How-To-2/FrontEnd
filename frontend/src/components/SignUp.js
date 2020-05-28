@@ -38,8 +38,12 @@ let SignUp = () => {
 
     //   Event Handlers
     const inputChange = (e) => {
-        // validateChange(e);
-        setLoginFormState({ ...loginFormState, [e.target.name]: e.target.value });
+        e.persist();
+        validateChange(e);
+        setLoginFormState({
+            ...loginFormState,
+            [e.target.name]: e.target.value,
+        });
     };
 
     const validateChange = (e) => {
@@ -63,9 +67,11 @@ let SignUp = () => {
     const loginFormSubmit = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post("https://clhowto.herokuapp.com/api/auth/register", loginFormState)
+            .post(
+                "https://clhowto.herokuapp.com/api/auth/register",
+                loginFormState,
+            )
             .then((res) => {
-                console.log("loginFormState-actually Signup", loginFormState);
                 history.push("/login");
                 // reset form if successful
                 setLoginFormState({
