@@ -54,7 +54,9 @@ let Login = () => {
             .catch((err) => {
                 setSignUpErrors({
                     ...signUpErrors,
+
                     [e.target.name]: err.signUpErrors[0],
+
                 });
             });
     };

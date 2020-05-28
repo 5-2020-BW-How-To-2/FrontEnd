@@ -4,7 +4,6 @@ import "../components/Login.css";
 import { useHistory } from "react-router-dom";
 import axiosWithAuth from "../utils/AxiosWithAuth";
 
-
 let SignUp = () => {
     // State
     let history = useHistory();
