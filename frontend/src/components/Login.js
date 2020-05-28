@@ -80,7 +80,7 @@ let Login = () => {
 
                 setSignUpPost(res.data); // get just the form data from the REST api
                 console.log(res.data);
-                console.log("success", signUpPost);
+                console.log("success", signUpFormState);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.id);
                 // reset form if successful

@@ -81,6 +81,8 @@ let SignUp = () => {
                 setLoginPost(res.data);
                 console.log("loginPost", loginFormState);
                 history.push("/login");
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user_id", res.data.id);
                 // reset form if successful
                 setLoginFormState({
                     username: "",
