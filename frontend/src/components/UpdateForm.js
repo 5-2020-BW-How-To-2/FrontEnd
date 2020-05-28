@@ -1,49 +1,59 @@
-import React, { useState } from "react";
-import AxiosWithAuth from "../utils/AxiosWithAuth";
-import { useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
+import axiosWithAuth from '../utils/AxiosWithAuth';
+import { useHistory } from 'react-router-dom';
 
-const AddHackForm = (props) => {
-const { push } = useHistory();
+    const UpdateForm = props => {
+    const { push } = useHistory();
 
-    const [newHack, setNewHack] = useState({
-        user_id: "1",
+    const [newData, setNewData] = useState({
+        id: 0,
         title: "",
         description: "",
         materials: "",
         instructions: "",
-        video: "",
     });
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        AxiosWithAuth()
-            .post("https://clhowto.herokuapp.com/api/posts", newHack)
+        axiosWithAuth()
+            .put(`https://clhowto.herokuapp.com/api/posts/${newData.id}`, newData)
             .then((res) => {
-                props.setPosts(res.data);
-                window.location.reload()
+                setNewData(res.data);
+                // window.location.reload()
                 push('/dashboard')
-                console.log("this is the new hack data", res.data);
+                console.log("this is the updated data", res.data);
             });
     };
-
     const refresh = () => {
         window.location.reload(false);
     };
 
     return (
         <div>
+            <h1>Have a better idea?</h1>
             <form onSubmit={handleSubmit}>
                 <h3>Whats your big idea!</h3>
                 <label>Life-Hack</label>
+                <br />
+                <label>ID</label>
+                <br />
+                <input 
+                type="number"
+                name="id"
+                placeholder="id"
+                onChange={(e) =>
+                    setNewData({ ...newData, title: e.target.value })
+                }
+                value={newData.id}
+                />
                 <br />
                 <input
                     type='text'
                     name='title'
                     placeholder='hack'
                     onChange={(e) =>
-                        setNewHack({ ...newHack, title: e.target.value })
+                        setNewData({ ...newData, title: e.target.value })
                     }
-                    value={newHack.title}
+                    value={newData.title}
                 />
                 <br />
                 <label>Description</label>
@@ -53,9 +63,9 @@ const { push } = useHistory();
                     name='description'
                     placeholder='description'
                     onChange={(e) =>
-                        setNewHack({ ...newHack, description: e.target.value })
+                        setNewData({ ...newData, description: e.target.value })
                     }
-                    value={newHack.description}
+                    value={newData.description}
                 />
                 <br />
                 <label>Materials</label>
@@ -65,9 +75,9 @@ const { push } = useHistory();
                     name='materials'
                     placeholder='materials'
                     onChange={(e) =>
-                        setNewHack({ ...newHack, materials: e.target.value })
+                        setNewData({ ...newData, materials: e.target.value })
                     }
-                    value={newHack.materials}
+                    value={newData.materials}
                 />
                 <br />
                 <label>Instructions</label>
@@ -77,26 +87,16 @@ const { push } = useHistory();
                     name='instructions'
                     placeholder='instructions'
                     onChange={(e) =>
-                        setNewHack({ ...newHack, instructions: e.target.value })
+                        setNewData({ ...newData, instructions: e.target.value })
                     }
-                    value={newHack.instructions}
+                    value={newData.instructions}
                 />
                 <br />
-                <label>Video</label>
-                <br />
-                <input
-                    type='text'
-                    name='video'
-                    placeholder='Got a URL?'
-                    onChange={(e) =>
-                        setNewHack({ ...newHack, video: e.target.value })
-                    }
-                    value={newHack.video}
-                />
-                <br />
-                <button onClick={refresh}>Submit Your Hack</button>
+                <button >Submit Your Edit</button>
             </form>
+            
         </div>
-    );
-};
-export default AddHackForm;
+    )
+}
+export default UpdateForm
+

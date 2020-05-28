@@ -7,6 +7,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./utils/PrivateRoute";
 import UserPage from "./components/UserPage";
+import UpdateForm from './components/UpdateForm';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/signup' component={SignUp} />
                 <Route exact path='/userpage' component={UserPage} />
+                <Route exact path='/updateForm'component={UpdateForm} />
                 <PrivateRoute path='/dashboard' component={Dashboard} />
             </Switch>
         </div>

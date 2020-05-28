@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import PostCard from "./PostCard";
 
 const PostList = (props) => {
+
+    
+
     return (
         <div>
             {props.posts.map((post) => {
