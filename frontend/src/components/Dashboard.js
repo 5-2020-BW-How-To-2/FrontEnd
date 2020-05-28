@@ -19,7 +19,7 @@ const Dashboard = () => {
     return (
         <div className='hacksBody'>
             <Link to='/userpage'>
-                <button>Profile</button>
+                <button id="probut">Profile</button>
             </Link>
 
             <PostList posts={posts} />
