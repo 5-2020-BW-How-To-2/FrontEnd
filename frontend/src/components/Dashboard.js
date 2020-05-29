@@ -18,10 +18,9 @@ const Dashboard = () => {
     }, []);
     return (
         <div className='hacksBody'>
-            <Link to='/userpage'>
-                <button id="probut">Profile</button>
-            </Link>
-
+            <div className="banner">
+                <p>Welcome to Popular Life-Hacks! Use your Profile to submit Life-Hacks to be added to the Popular Page!</p>
+            </div>
             <PostList posts={posts} />
         </div>
     );

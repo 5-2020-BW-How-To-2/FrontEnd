@@ -9,7 +9,8 @@ const StickyNav = () => {
 
     const logout = () => {
         localStorage.removeItem("token");
-        history.push("/login");
+        window.location.reload()
+        history.push("/");
       };
 
     return (
@@ -20,13 +21,14 @@ const StickyNav = () => {
 
             {isLogged ? (
                 <div className='navbuttons' >
+                    <button> <a href="https://howtoapp.netlify.app/">Get Started</a></button>
                     <Link to="/dashboard"><button>Dashboard</button></Link>
                     <Link><button onClick={logout}>Logout</button></Link>
                     <Link to="/userpage"><button>Profile</button></Link>
                 </div>
             ) : (
             <div className='navbuttons'>
-                <button href="#">About Us</button>
+                <button> <a href="https://howtoapp.netlify.app/">Get Started</a></button>
                 <Link to='/signup'><button>Sign Up</button></Link>
                 <Link to='/login'><button>Login</button></Link>
             </div>
