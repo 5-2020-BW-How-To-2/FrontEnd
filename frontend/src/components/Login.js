@@ -73,6 +73,7 @@ let Login = () => {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.id);
                 history.push("/dashboard");
+                window.location.reload()
                 // reset form if successful
                 setSignUpFormState({
                     username: "",
